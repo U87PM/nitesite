@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="../game_menu.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+            body{
+                background-color: pink;
+                overflow: hidden;
+            }
+            h1{
+                text-align: center;
+                font-family: Great Vibes;
+                font-size: 8vh;
+                text-shadow: 0 0 3px red;
+            }
+            article{
+                font-family: cursive;
+                text-shadow: 0 0 2px white;
+                color: yellow;
+                background-color: red;
+                padding: 10px;
+                width: 50%;
+                margin-left: 25%;
+                border: 10px double pink;
+                margin-bottom: 25%;
+                height: 50vh;
+                overflow-y: auto;
+                font-size: 2.6vh;
+            }
+            .heartb{
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+                position: fixed;
+                width: 4%;
+                height: 5%;
+                background-color: red;
+            }
+            .heartl{
+                background-color: red;
+                width: 2%;
+                height: 5%;
+                position: fixed;
+                border-top-left-radius: 50%;
+                border-top-right-radius: 75%;
+            }
+            .heartr{
+                background-color: red;
+                width: 2%;
+                height: 5%;
+                position: fixed;
+                border-top-right-radius: 50%;
+                border-top-left-radius: 75%;
+            }
+            .ab{
+                top: 20%;
+                left: 10%;
+            }
+            .al{
+                top: 15%;
+                left: 10%;
+            }
+            .ar{
+                top: 15%;
+                left: 12%;
+            }
+            .bb{
+                top: 60%;
+                left: 15%;
+            }
+            .bl{
+                top: 55%;
+                left: 15%;
+            }
+            .br{
+                top: 55%;
+                left: 17%;
+            }
+            .cb{
+                top: 30%;
+                left: 80%;
+            }
+            .cl{
+                top: 25%;
+                left: 80%;
+            }
+            .cr{
+                top: 25%;
+                left: 82%;
+            }
+            .db{
+                top: 87%;
+                left: 50%;
+            }
+            .dl{
+                top: 82%;
+                left: 50%;
+            }
+            .dr{
+                top: 82%;
+                left: 52%;
+            }
+            .eb{
+                top: 90%;
+                left: 18%;
+            }
+            .el{
+                top: 85%;
+                left: 18%;
+            }
+            .er{
+                top: 85%;
+                left: 20%;
+            }
+            .fb{
+                top: 70%;
+                left: 93%;
+            }
+            .fl{
+                top: 65%;
+                left: 93%;
+            }
+            .fr{
+                top: 65%;
+                left: 95%;
+            }
+            .decor{
+                position: fixed;
+                height: 20%;
+                border-radius: 100%;
+                width: 50%;
+                background-color: hsla(0, 0%, 0%, 0);
+                box-shadow: 0 0 10px hsl(0, 100%, 50%);
+                bottom: -10%;
+                user-select: none;
+            }
+            .a{
+                left: -25%;
+            }
+            .b{
+                left: 25%;
+            }
+            .c{
+                right: -25%;
+            }
+            .d{
+                left: 0;
+            }
+            .e{
+                right: 0;
+            }
+            .timer{
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 10%;
+                height: 10vh;
+                background-color: white;
+                text-align: center;
+                font-family: monospace;
+                font-size: 7vh;
+                border: 5px double black;
+            }
+            .score{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 10%;
+                height: 10vh;
+                background-color: lime;
+                text-align: center;
+                font-family: monospace;
+                font-size: 7vh;
+                border: 5px double yellow;
+                }
+            .tip{
+                position: fixed;
+                font-size: 10vh;
+                z-index: 1;
+                color: black;
+                opacity: 100%;
+                top: 45%;
+                left: 35%;
+                transform: rotate(20deg);
+                transition-duration: 0.5s;
+                }
+            .end{
+                z-index: 20;
+                background-color: black;
+                display: none;
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+            }
+        </style>
+        <title>Valentine's Day</title>
+    </head>
+    <body>
+        <h1 onClick="navbar()">Valentine's Day</h1>
+        <div class="menu">
+            <a href="../index.html"><div class="game" style="background-color:rgba(150, 150, 150, 1)">Home of Night</div></a>
+            <a href="./Valentine.html"><div class="game" style="background-color: pink">Love is in the Air</div></a>
+            <a href="./Night.html"><div class="game" style="background-color:rgb(60, 60, 60)">The Depths of Night</div></a>
+        </div>
+            <div class="end"></div>
+            <div class="decor a"></div>
+            <div class="decor b"></div>
+            <div class="decor c"></div>
+            <div class="decor d"></div>
+            <div class="decor e"></div>
+            <aside class="heartb ab" onClick="game()"></aside><aside class="heartl al" onClick="game()"></aside><aside class="heartr ar" onClick="game()"></aside>
+            <aside class="heartb bb" onClick="game()"></aside><aside class="heartl bl" onClick="game()"></aside><aside class="heartr br" onClick="game()"></aside>
+            <aside class="heartb cb" onClick="game()"></aside><aside class="heartl cl" onClick="game()"></aside><aside class="heartr cr" onClick="game()"></aside>
+            <aside class="heartb db" onClick="game()"></aside><aside class="heartl dl" onClick="game()"></aside><aside class="heartr dr" onClick="game()"></aside>
+            <aside class="heartb eb" onClick="game()"></aside><aside class="heartl el" onClick="game()"></aside><aside class="heartr er" onClick="game()"></aside>
+            <aside class="heartb fb" onClick="game()"></aside><aside class="heartl fl" onClick="game()"></aside><aside class="heartr fr" onClick="game()"></aside>
+            <aside class="timer">10</aside>
+            <aside class="score" onClick="colour()"></aside>
+            <aside class="tip"></aside>
+            <article>
+                Happy Valentine's Day to all! I made this webpage because I felt like it and I wondered whether I would be able to create little hearts. Also to hone my Javascript skills. Speaking of which, I have created a fun little game for you!
+                Click the title for the menu of other games (WIP). Click the scoreboard if you don't like my colour scheme. Oh and by the way, <strong style="transition-duration: 2s">DO NOT</strong> criticise my hearts. I literally have to have 3 elements in HTML and 12 seperate lines in CSS for EACH AND EVERY HEART. You do not want to know how much JavaScript it takes.
+                And no I can not use an image because that would require me to send you the file as a zipped folder. Anyway, I will now give you the rules of the game.
+                <br><br><span style="font-size: 4vh">Game Rules</span>
+                <br>1. Click on any heart to start the game.
+                <br>2. Each time you click on a heart, you gain 1 score.
+                <br>3. Once the game begins, you have 10 seconds until it ends.
+                <br>4. Gain as much score as possible during the time.
+                <br>5. Score is displayed on the top left and the timer is on the top right.
+                <br>6. When you click a heart, one random heart will appear. All other hearts will disappear.
+                <br>7. It is possible for the same heart to appear multiple times in a row.
+                <br>8. The locations of the 6 hearts will not change.
+                <br>9. Post your score on Discord along with a creative complaint about my webpage!
+                <br><br><span style="font-family: Great Vibes">William</span>
+            </article>
+        </div>
+    </body>
+    <script>
+        body = document.querySelector('html');
+        menu = document.querySelector('.menu');
+        death = document.querySelector('.end');
+        timer = document.querySelector('.timer');
+        board = document.querySelector('.score');
+        bold = document.querySelector('strong');
+        tip = document.querySelector('.tip');
+        ab = document.querySelector('.ab');
+        al = document.querySelector('.al');
+        ar = document.querySelector('.ar');
+        bb = document.querySelector('.bb');
+        bl = document.querySelector('.bl');
+        br = document.querySelector('.br');
+        cb = document.querySelector('.cb');
+        cl = document.querySelector('.cl');
+        cr = document.querySelector('.cr');
+        db = document.querySelector('.db');
+        dl = document.querySelector('.dl');
+        dr = document.querySelector('.dr');
+        eb = document.querySelector('.eb');
+        el = document.querySelector('.el');
+        er = document.querySelector('.er');
+        fb = document.querySelector('.fb');
+        fl = document.querySelector('.fl');
+        fr = document.querySelector('.fr');
+        var score = 0;
+        var time = 10;
+        var click = 0;
+        var nav = 0;
+        function navbar(){
+        if (nav == 0){
+        menu.style.display = "block";
+        nav = 1;
+        }else {
+        menu.style.display = "none";
+        nav = 0;
+        }
+        }
+        bolda();
+        function bolda(){
+        bold.style.color = "black";
+        window.setTimeout(boldb, 2000);
+        }
+        function boldb(){
+        bold.style.color = "yellow";
+        window.setTimeout(bolda, 2000);
+        }
+        function a(){
+        ab.style.display = "none";
+        al.style.display = "none";
+        ar.style.display = "none";
+        }
+        function b(){
+        bb.style.display = "none";
+        bl.style.display = "none";
+        br.style.display = "none";
+        }
+        function c(){
+        cb.style.display = "none";
+        cl.style.display = "none";
+        cr.style.display = "none";
+        }
+        function d(){
+        db.style.display = "none";
+        dl.style.display = "none";
+        dr.style.display = "none";
+        }
+        function e(){
+        eb.style.display = "none";
+        el.style.display = "none";
+        er.style.display = "none";
+        }
+        function f(){
+        fb.style.display = "none";
+        fl.style.display = "none";
+        fr.style.display = "none";
+        }
+        function end(){
+        a();
+        b();
+        c();
+        d();
+        e();
+        f();
+        alert('Well done! You successfully seduced and broke the hearts of ' + score + ' people. I hope you enjoyed that. Reload the page to play again. I may or may not add a reset function in future.');
+        if (score >= 20){
+        alert('Wow. You are a very bad person. I am impressed. I may or may not add a special feature for this in future.');
+        }
+        }
+        function colour(){
+        var fun = Math.floor(Math.random()*360);
+        body.style.filter = "hue-rotate(" + fun + "deg)";
+        }
+        crazya();
+        function countdown(){
+        time--;
+        timer.textContent = time;
+        if (time > 0){
+        window.setTimeout(countdown, 1000);
+        }
+        }
+        function unclick(){
+        click--;
+        }
+        function reset(){
+        tip.style.opacity = "0";
+        }
+        function game(){
+        click++;
+        window.setTimeout(unclick, 200);
+        if (click == 5){
+        death.style.display = "block";
+        alert('Spam clicking is banned!');
+        time = 0.5;
+        }
+        if (score == 0){
+        window.setTimeout(end, 10000);
+        countdown();
+        tip.style.opacity = "50%";
+        tip.textContent = 'A lonely heart... pity';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 1){
+        tip.style.opacity = "50%";
+        tip.textContent = 'A loving couple';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 2){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Oooh a threesome';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 3){
+        tip.style.opacity = "50%";
+        tip.textContent = 'You are a collector of hearts';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 4){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Love is in the air';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 5){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Your lust is never sated';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 6){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Seven loves found... and lost';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 7){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Truly, you must love clicking';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 8){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Your mouse is your heart and soul';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 9){
+        tip.style.opacity = "50%";
+        tip.textContent = 'You are the greatest seducer';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 10){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Shall you steal my heart as well?';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 11){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Your thirst for love is endless!';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 12){
+        tip.style.opacity = "50%";
+        tip.textContent = 'Ace, King, Queen, Jack, 10, 9, 8...';
+        window.setTimeout(reset, 1000);
+        }
+        if (score == 13){
+        tip.style.opacity = "50%";
+        tip.textContent = 'A heart a day keeps the conscience away';
+        window.setTimeout(reset, 1000);
+        }
+        if (score >= 14){
+        tip.style.opacity = "50%";
+        tip.textContent = 'LOVE UNTO INFINITY!';
+        window.setTimeout(reset, 1000);
+        }
+        score++;
+        board.textContent = score;
+        var x = Math.floor(Math.random()*7);
+        if (x == 0){
+        ab.style.display = "block";
+        al.style.display = "block";
+        ar.style.display = "block";
+        b();
+        c();
+        d();
+        e();
+        f();
+        }
+        if (x == 1){
+        bb.style.display = "block";
+        bl.style.display = "block";
+        br.style.display = "block";
+        a();
+        c();
+        d();
+        e();
+        f();
+        }
+        if (x == 2){
+        cb.style.display = "block";
+        cl.style.display = "block";
+        cr.style.display = "block";
+        b();
+        a();
+        d();
+        e();
+        f();
+        }
+        if (x == 3){
+        db.style.display = "block";
+        dl.style.display = "block";
+        dr.style.display = "block";
+        b();
+        c();
+        a();
+        e();
+        f();
+        }
+        if (x == 4){
+        eb.style.display = "block";
+        el.style.display = "block";
+        er.style.display = "block";
+        b();
+        c();
+        d();
+        a();
+        f();
+        }
+        if (x == 5){
+        fb.style.display = "block";
+        fl.style.display = "block";
+        fr.style.display = "block";
+        b();
+        c();
+        d();
+        e();
+        a();
+        }
+        }
+    </script>
+</html>

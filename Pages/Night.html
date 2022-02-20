@@ -1,0 +1,324 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="../game_menu.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    *{
+    transition-duration: 5s;
+    }
+    body{
+    background-color: black;
+    overflow: hidden;
+    }
+    .main{
+    width: 55%;
+    margin-top: 3vh;
+    margin-left: 20%;
+    margin-right: 30%;
+    background-color: hsl(0, 0%, 30%);
+    padding: 20px;
+    font-family: monospace;
+    box-shadow: 0 0 5px hsl(0, 0%, 30%);
+    border-radius: 5px;
+    height: 57vh;
+    overflow: auto;
+    }
+    .title{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 0 5px silver;
+    background-color: silver;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    }
+    .speech{
+    color: hsl(0, 0%, 100%);
+    text-shadow: 0 0 8px hsl(0, 0%, 100%);
+    font-size: 2.4vh;
+    }
+    .sign{
+    display: inline-block;
+    width: 30%;
+    margin-left: 40%;
+    background-color: black;
+    color: red;
+    padding: 0.8vw;
+    font-family: Great Vibes;
+    box-shadow: 0 0 2px black;
+    cursor: pointer;
+    }
+    .moon{
+    position: fixed;
+    background-color: white;
+    box-shadow: 0 0 10px hsl(0, 0%, 100%);
+    border-radius: 100%;
+    top: 10%;
+    right: 15%;
+    height: 8vw;
+    width: 8vw;
+    }
+    .button{
+    user-select: none;
+    display: inline-block;
+    margin-left: 1.5vw;
+    background-color: white;
+    box-shadow: 0 0 10px hsl(0, 0%, 100%);
+    border-radius: 100%;
+    height: 16vh;
+    width: 7vw;
+    text-align: center;
+    padding-top: 3vh;
+    transition-duration: 1s;
+    cursor: pointer;
+    }
+    .button:hover{
+    background-color: black;
+    box-shadow: 0 0 10px hsl(0, 0%, 0%);
+    color: red;
+    }
+    .left, .right{
+    position: fixed;
+    width: 16%;
+    border-radius: 100%;
+    height: 50%;
+    background-color: hsla(0, 0%, 0%, 0);
+    box-shadow: 0 0 10px hsl(0, 0%, 100%);
+    }
+    .left{
+    left: -8%;
+    }
+    .right{
+    right: -8%;
+    }
+    .a{
+    top: -25%;
+    }
+    .b{
+    top: 25%;
+    }
+    .c{
+    bottom: -25%;
+    }
+    .d{
+    top: 0;
+    }
+    .e{
+    bottom: 0;
+    }
+    .list{
+    position: fixed;
+    width: 100%;
+    height: 15vh;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(200, 200, 200, 0.8);
+    box-shadow: 0 0 30px 20px rgba(200, 200, 200, 0.8);
+    display: none;
+    }
+    .m{
+    display: inline-block;
+    width: 4.5%;
+    float: left;
+    margin-left: 0.5%;
+    height: 80%;
+    background-color: black;
+    opacity: 80%;
+    box-shadow: 0 0 1vw 0.1vw black;
+    transition-duration: 0.5s;
+    text-align: center;
+    font-size: 10vh;
+    color: white;
+    cursor: pointer;
+    }
+    .m:hover{
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 1vw 0.5vw white;
+    user-select: none;
+    }
+    .ma{
+    margin-left: 0.25%;
+    }
+    </style>
+    <body>
+    <div class="left a"></div>
+    <div class="left b"></div>
+    <div class="left c"></div>
+    <div class="left d"></div>
+    <div class="left e"></div>
+    <div class="right a"></div>
+    <div class="right b"></div>
+    <div class="right c"></div>
+    <div class="right d"></div>
+    <div class="right e"></div>
+    <div class="moon"></div>
+    <h1 class="title" onClick="navbar()">Midnight Speech</h1>
+    <div class="menu">
+    <a href="../index.html"><div class="game" style="background-color:rgba(150, 150, 150, 1)">Home of Night</div></a>
+        <a href="./Valentine.html"><div class="game" style="background-color: pink">Love is in the Air</div></a>
+        <a href="./Night.html"><div class="game" style="background-color:rgb(60, 60, 60)">The Depths of Night</div></a>
+    </div>
+    <br>
+    <div class="main">
+    <article class="speech">All is enshrouded by the inevitable night. Darkness is the cloak of those who are dark at heart. It is a haven from the virtues of the world. Here, you can read the fruit of night's inspiration. Click the title for the menu of other games (WIP).
+    This webpage is a collection of many of my midnight speeches for your reading leisure. Click on my name to bring up the list of speeches.</article>
+    <br><br>
+    <p class="button" onClick="light()">Press this for some special effects</p>
+    <p class="sign" onClick="speeches()">William, The Bringer of Night</p></div>
+    <div class="list">
+    <div class="m ma" onClick="ma()">?</div>
+    <div class="m mb" onClick="mb()">?</div>
+    <div class="m mc" onClick="mc()">?</div>
+    <div class="m md" onClick="md()">?</div>
+    <div class="m me" onClick="me()">?</div>
+    <div class="m mf" onClick="mf()">?</div>
+    <div class="m mg" onClick="mg()">?</div>
+    <div class="m mh" onClick="mh()">?</div>
+    <div class="m mi" onClick="mi()">?</div>
+    <div class="m mj" onClick="mj()">?</div>
+    <div class="m mk" onClick="mk()">?</div>
+    <div class="m ml" onClick="ml()">?</div>
+    <div class="m mm" onClick="mm()">?</div>
+    <div class="m mn" onClick="mn()">?</div>
+    <div class="m mo" onClick="mo()">?</div>
+    <div class="m mp" onClick="mp()">?</div>
+    <div class="m mq" onClick="mq()">?</div>
+    <div class="m mr" onClick="mr()">?</div>
+    <div class="m ms" onClick="ms()">?</div>
+    <div class="m mt" onClick="mt()">?</div>
+    </div>
+    </body>
+    <script>
+    link = document.querySelector('.list');
+    sign = document.querySelector('.sign');
+    article = document.querySelector('article');
+    moon = document.querySelector('.moon');
+    button = document.querySelector('.button');
+    menu = document.querySelector('.menu');
+    html = document.querySelector('html');
+    var nav = 0;
+    var speech = 0;
+    function speeches(){
+    if (speech == 0){
+    link.style.display = "block";
+    speech = 1;
+    } else{
+    link.style.display = "none";
+    speech = 0;
+    }
+    }
+    function navbar(){
+    if (nav == 0){
+    menu.style.display = "block";
+    nav = 1;
+    }else {
+    menu.style.display = "none";
+    nav = 0;
+    }
+    }
+    function light(){
+    button.style.color = "hsl(0, 0%, 30%)";
+    button.style.backgroundColor = "hsl(0, 0%, 30%)";
+    button.style.boxShadow = "0 0 0px hsl(0, 0%, 30%)";
+    html.style.filter = "brightness(70%)";
+    moon.style.backgroundColor = "hsla(0, 0%, 100%, 0.8)";
+    moon.style.boxShadow = "0 0 0px hsl(0, 0%, 100%)";
+    window.setTimeout(dark, 5000);
+    }
+    function dark(){
+    html.style.filter = "brightness(130%)";
+    moon.style.backgroundColor = "hsla(0, 0%, 100%, 1)";
+    moon.style.boxShadow = "0 0 50px 20px white";
+    window.setTimeout(light, 5000);
+    }
+    function signa(){
+    sign.style.filter = "hue-rotate(0deg)";
+    window.setTimeout(signb, 2000);
+    }
+    function signb(){
+    sign.style.filter = "hue-rotate(60deg)";
+    window.setTimeout(signc, 2000);
+    }
+    function signc(){
+    sign.style.filter = "hue-rotate(120deg)";
+    window.setTimeout(signd, 2000);
+    }
+    function signd(){
+    sign.style.filter = "hue-rotate(180deg)";
+    window.setTimeout(signe, 2000);
+    }
+    function signe(){
+    sign.style.filter = "hue-rotate(240deg)";
+    window.setTimeout(signf, 2000);
+    }
+    function signf(){
+    sign.style.filter = "hue-rotate(300deg)";
+    window.setTimeout(signa, 2000);
+    }
+    signa();
+    function ma(){
+    article.textContent = "All is enshrouded by the inevitable night. Darkness is the cloak of those who are dark at heart. It is a haven from the virtues of the world. Here, you can read the fruit of night\'s inspiration. Click the title for the menu of other games (WIP). This webpage is a collection of many of my midnight speeches for your reading leisure. Click on my name to bring up the list of speeches.";
+    }
+    function mb(){
+    article.textContent = "Tonight, my midnight speech shall be a most particular midnight speech! For tonight, my midnight speech shall be one of the most memorable and significant of all midnight speeches! Tonight, my midnight speech shall become a part of our historical lore! Every word of this speech shall be remembered and recorded among the words of the greatest loremasters in the entire server! (Psst there's not much competition.) Now the time has come to put forth my greatest midnight speech yet! The cornerstone of my character! The foundation of my fame! The hallmark of my honour! Tonight, I proclaim my challenge to all other Williams in this server! I proclaim my right to be the one who is called William! For far too long have we made our own separate names! WiL and Billy might be close to William but none may dare to take what is should be theirs until all opposition is vanquished! (metaphorically) Therefore, tonight, I shall claim that right! None shall hereafter have the audacity to challenge that I am WILLIAM! For none can create such an amazing, baffling, creative, dazzling, enigmatic, ferocious, gargantuan, harrowing, impressive, justifying, knowing, lustrous, midnightish, narcissistic, opulent, prolific, quintessential, resounding, sophisticated, terrific, ultimate, valiant, wonderous, yielding, zealout speech! (Phew. I actually had to use my dictionary once I arrived at U.) This midnight speech shall top all others! For it shall be the penultimate midnight speech in which I deliver my ultimate ultimatum! To all those of my name in this server / This is my name that none may dare refuse / I now declare that now and hereafter / For other claimants shall most surely lose / So Will I am and yes that is a pun / This name is mine to show for all to see / And who may challenge? I declare it's none! / Mute now your claims and you shall all go free / Deny and you shall see my fury soon / My evil poems shall cause you to fear / My evil plots shall last from night to noon / My evil conquest shall be very near / My name is mine and mine to ever keep / He must who wants it with a dagger sleep. My literary devices are endless! I shall use poetry and prose to claim what is rightfully mine! I AM WILLIAM! Accept my dominance and you never need suffer my mockery! Read my Christmas cards! Read my midnight poems! Read my ULTIMATE MIDNIGHT SPEECH! Behold the literary prowess of the one before you! Behold and tremble! The climax of my midnight speeches has come! My zenith has come! As this fated midnight arrives, all those unworthy of the name of William shall sink to their nadir! NONE CAN STOP ME! THIS TITLE IS MINE! I dare any who want my title for their own to step forth and produce a work more impressive than mine! I have produced wonders! I have entertained all those in this server since the day I arrived! The light of my character shines through the darkest of mires! I am UNIQUE and all here know me! My midnight speeches are the words of legend! Be dazzled by my characteristic light in my Christmas cards and be blinded by my characteristic darkness in my midnight speeches! None have my passion and my zealotry! This historic lore has come to an end while it has barely started! I CLAIM THE RIGHT! And I shall release the dogs of literary war upon any who dare to challenge it! I carry upon myself the name of William! Woe upon any rivals! Come forth! If you think yourself worthy to challenge me, come forth! Come forth into my territory. Tradition demands high noon, but your courage demands the depths of midnight. I await on the twelfth dot. Let us hope you can provide sufficient fun to at least give people a sample of your character beneath the cumulative layers of mine. For I shall not withhold the barrages of scathing scorn that boil within me. You shall know the power of an extended vocabulary and the ability to use it. You shall learn how to appeal to an audience of the most dull-brained adolescents. Now all know that once the climax is over, the descent begins. But now that mine has arrived, I intend on making it plateau!  y midnight speeches shall not be over! Now that I have made my name, all shall see the wonder of my midnight speeches! The dark times have passed! My plots have come to fruition! My destiny is fulfilled! I have surpassed all the other Williams in this server with my indescribable midnight speech! I have the je ne sais quoi that all of you lack. I have the charisma to entertain in the most unorthodox of ways. Behold! But even so, I dare you to commit the faux pas of challenging me. I do want some fun. My midnight speech tonight has been a most particular midnight speech.It has been memorable, significant and historic. It shall be recorded as unchallengeable. I have created my character, forged my fame and historicised my honour. I have challenged all the other Williams and claimed the right to the title. I have relinquished my separate names and vanquished my opposition. Tonight, I have claimed my right. Hereafter, I AM WILLIAM!";
+    }
+    function mc(){
+    article.textContent = "The stroke of midnight has come! Now we begin Wednesday, for those of you who do not pay attention to the days of the week during the holidays Indeed, as we idle away our time in meaningless sloth and recreation, I do find that humanity\'s worse traits are revealed Time spent away from society can have dreadful results on the mind, soul and body. For example I can barely run up the stairs without needing to catch my breath. Also I have these really annoying self-talk crises where I yell at myself about failings. Furthermore, I need to actually pause and think to calculate something as simple as 12 + 7 + 6. Oh yeah. And the entire thing about sounding like a different person every five lines of speech. Wait nevermind, that\'s normal. Anyway, now that I\'ve opened my heart and soul in an overly casual-sounding way, no one will believe me. This midnight speech has served its purpose. And we all know what to do with things that have served their purpose! *I would insert a GIF of a beheading here, but I don\'t like images in my midnight speeches*";
+    }
+    function md(){
+    article.textContent = "At the advent of the new year and the arrival of The Midnight Poet\'s zenith, the residents of this server were ignorant of the swiftly approaching plot twist. William, The Midnight Poet, began to prophesise a dreadful doom for the present cultists. The midnight speeches were fading. For many weeks, it had been claimed by the most pessimistic prophets that the server was dying. William, now The Midnight Prophet, foresaw an end. The frequent absence of the midnight speeches began to take its toll. Soon, William, greedy for the end that he foresaw, delivered an ultimatum. The midnight speeches were at an end. The cult must learn to revive itself! However, anon came an heir to the noble title of Midnight Poet. Ιλια ,The Temporary Midnight Poet, proclaimed himself the successor! Unfortunately for the cultists of friendship, the successor was a most dreadful failure. An aggrieved William, now The Bringer of Night, sped up his propaganda. The Bringer of Night, filled with the experience of being The Midnight Poet, may be the gravest peril that Our Friend Cult has ever faced! Unless Unity of Friendship can hold back the darkness, the darkness of death shall envelope the once-glorious Cult!";
+    }
+    function me(){
+    article.textContent = "Hi everyone. My name is William. Over the holidays, I decided to found The Cult of Night. I also went out with my friends and did some not illegal stuff. Then everyone got panicked about a COVID spike and we got stuck at home. I didn\'t mind because I like being at home. At home, I did a heap of stuff. I enjoyed spending countless hours working on a Christmas card website. I thought my friends could be more appreciative though. I also enjoyed writing a heap of midnight poems, speeches and prophecies. My friends were super unappreciative of those as well. Except Finn. Finn worked really hard to cheer me up about how unappreciative everyone was and he didn\'t even realise that I never needed cheering up in the first place. I don\'t think he gets that I often act a lot more annoyed than I actually am. He does that at school as well sometimes. I spent a bunch of time on Our Friend Cult and The Cult of Night. It was nice to have contact with my friends, especially Ilia who I probably won\'t be seeing ever again. This is now goodbye from William.";
+    }
+    function mf(){
+    article.textContent = "Dawn breaks and dusk falls. A most peculiar set of words. Both of these tend to negative connotations. Both the arrival of the day and the arrival of the night bring woe. But what of the times in between? Oft do we speak of high noon and the depths of midnight. You all know which I prefer... Personal anecdotes aside. I do find the terms that we use to describe time most peculiar. Some consider it a stream. Others on occasion refer to time hyphenated to space. Some believe it is a fourth dimension, after length, width and depth. It is also wondered whether time should be considered a human construct. Or is it natural? Or a human idea?";
+    }
+    function mg(){
+    article.textContent = "My laptop is on low charge so I\'m going to do my midnight speech a tad early tonight. And because of how much I soliloquised last night and how much everyone judged me for it, I will be saying very little tonight. You can claim that I lack the courage to withstand the mockery of society, but \"discretion is the better part of valour\" (Henry IV, Shakespeare). I shall bid you all goodnight after seeing to some important business. This business entails saying TSK TSK TSK. Brin and Dante are playing CoD while I am doing my midnight speech! This is unacceptable! Who in their right mind would want to play a first-person shooter? And this is a MIDNIGHT speech! Midnight is a time for sleep! And not only that, judging from the fact that they started playing at the same time, I suspect they are playing together! And they didn\'t even announce it in their cult of friends!";
+    }
+    function mh(){
+    article.textContent = "placeholder";
+    }
+    function mi(){
+    article.textContent = "placeholder";
+    }
+    function mj(){
+    article.textContent = "placeholder";
+    }
+    function mk(){
+    article.textContent = "placeholder";
+    }
+    function ml(){
+    article.textContent = "placeholder";
+    }
+    function mm(){
+    article.textContent = "placeholder";
+    }
+    function mn(){
+    article.textContent = "placeholder";
+    }
+    function mo(){
+    article.textContent = "placeholder";
+    }
+    function mp(){
+    article.textContent = "placeholder";
+    }
+    function mq(){
+    article.textContent = "placeholder";
+    }
+    function mr(){
+    article.textContent = "placeholder";
+    }
+    function ms(){
+    article.textContent = "placeholder";
+    }
+    function mt(){
+    article.textContent = "placeholder";
+    }
+    </script>
+    </html>

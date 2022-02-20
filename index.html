@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="game_menu.css">
+        <style>
+            body{
+                background-color: gray;
+                overflow: hidden;
+            }
+            h1{
+                text-align: center;
+                font-family: Great Vibes;
+                font-size: 8vh;
+                text-shadow: 0 0 3px red;
+            }
+            article{
+                font-family: cursive;
+                text-shadow: 0 0 2px white;
+                color: white;
+                background-color: black;
+                padding: 10px;
+                width: calc(90% - 100px);
+                margin-left: calc(5% + 50px);
+                border: 10px single white;
+                margin-bottom: 25%;
+                height: 50vh;
+                overflow-y: auto;
+                font-size: 2.6vh;
+            }
+        </style>
+        <title>Home of the Night</title>
+    </head>
+    <body>
+        <h1 onClick="navbar()">Home of the Night<h1>
+        <div class="menu">
+            <a href="index.html"><div class="game" style="background-color:rgba(150, 150, 150, 1)">Home of Night</div></a>
+            <a href="Pages/Valentine.html"><div class="game" style="background-color: pink">Love is in the Air</div></a>
+            <a href="Pages/Night.html"><div class="game" style="background-color:rgb(60, 60, 60)">The Depths of Night</div></a>
+        </div>
+        <article>
+            Welcome to a temporary home page of this website. Click on the title to access the menu.
+        </article>
+    </body>
+    <script>
+        menu = document.querySelector('.menu');
+        var nav = 0;
+        function navbar(){
+            if (nav == 0){
+                menu.style.display = "block";
+                nav = 1;
+            }else {
+                menu.style.display = "none";
+                nav = 0;
+            }
+        }
+    </script>
+ </html>
