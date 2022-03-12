@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            textarea {
+                resize: none;
+                border: 1px solid rgb(137, 137, 137);
+                font-family: inherit;
+                font-size: inherit;
+                padding: 1px 6px;
+            }
+            span 
+            {
+                display: inline-block;
+                border: solid 1px rgb(137, 137, 137);
+                padding: 2px;
+                padding-left: 3px;
+                padding-right: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Caesar Shift</h1>
+        <textarea id="input" rows="6" cols="50"></textarea>
+        <p>Shift by <span id="shift" class="input" role="textbox" contenteditable>3</span> characters right.</p>
+        <button onclick="submit()">Submit</button>
+        <p>Output: <span1 id="output"></span1></p>
+    </body>
+    <script>
+        function submit() {
+            let shift = parseInt(document.getElementById("shift").innerText);
+            let input =  document.getElementById("input").value;
+            let newStr = '';
+            let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+            let regex = /[a-z]/
+            for(let i =0; i<input.length; i++) {
+                if (regex.test(input[i]) === false) {
+                    newStr += input[i];
+                    continue;
+                }
+                let currentIndex = alphabet.indexOf(input[i]);
+                let newIndex = (currentIndex + shift)%26;
+                newStr += alphabet[newIndex];
+            }
+            console.log(newStr)
+            document.getElementById("output").innerText = newStr
+        }
+    </script>
+</html>

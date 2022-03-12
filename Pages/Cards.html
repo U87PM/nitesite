@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+*{
+box-sizing: border-box;
+}
+.game{
+font-size: 3vw;
+padding: 2vw;
+text-align: center;
+width: 100%;
+height: 20vh;
+border-right: 10px dashed black;
+color: black;
+z-index: 1000;
+}
+.menu{
+position: fixed;
+top: 0;
+left: 0;
+width: 20%;
+height: 100vh;
+background-color: black;
+z-index: 1000;
+display: none;
+}
+a{
+text-decoration: none;
+}
+h1{
+text-align: center;
+color: black;
+text-shadow: 0 0 1px white;
+font-family: 'UnifrakturCook', cursive;
+}
+body{
+background-color: hsl(30, 70%, 25%);
+}
+article{
+filter: sepia(100);
+position: fixed;
+top: 12vh;
+right: 7%;
+width: 40%;
+height: 30vh;
+overflow: auto;
+background-color: hsl(30, 70%, 20%);
+color: white;
+padding: 2vw;
+font-family: 'UnifrakturCook', cursive;
+font-size: 1.5vw;
+border: 1vw solid black;
+}
+.c{
+float: left;
+margin-left: 2%;
+background-color: rgb(55, 55, 55);
+color: rgb(200, 200, 200);
+}
+.d{
+float: right;
+margin-right: 2%;
+background-color: rgb(200, 200, 200);
+color: rgb(55, 55, 55);
+}
+.c, .d{
+opacity: 0%;
+transition-duration: 2s;
+filter: sepia(100);
+border-radius: 0.7vw;
+margin-top: 50vh;
+display: inline-block;
+width: 7vw;
+height: 10vw;
+border: 0.3vh solid black;
+text-align: center;
+font-size: 10vh;
+}
+.hit, .stand, .reset{
+box-shadow: 0 0 0.5vh gray;
+color: black;
+font-family: fantasy;
+font-size: 6vh;
+padding-top: 7vh;
+text-align: center;
+background-color: gray;
+border-radius: 2vw;
+width: 20vh;
+height: 20vh;
+position: fixed;
+cursor: pointer;
+top: 10%;
+}
+.hit:hover, .stand:hover, .reset:hover{
+width: 22vh;
+height: 22vh;
+padding-top: 8vh;
+}
+.hit{
+left: 10%;
+}
+.stand{
+left: 25%;
+}
+.reset{
+left: 17.5%;
+display: none;
+}
+.score, .dealer{
+background-color: gray;
+width: 6vw;
+height: 12vh;
+border: 0.5vh dashed black;
+position: fixed;
+left: 0;
+text-align: center;
+font-size: 10vh;
+}
+.score{
+top: 0;
+}
+.dealer{
+top: 12%;
+}
+.money{
+position: fixed;
+width: 15vw;
+height: 20vh;
+background-color: black;
+left: 36%;
+top: 15%;
+color: gold;
+text-align: center;
+font-size: 8vh;
+padding: 1vh;
+}
+</style>
+<title>Ye Olde Casino</title>
+</head>
+<body>
+<h1 onClick="navbar()">BLACKJACK</h1>
+<div class="menu">
+<a href="Valentines.html"><div class="game" style="background-color: pink">Love is in the Air</div></a>
+<a href="Night.html"><div class="game" style="background-color: gray">The Depths of Night</div></a>
+<a href="Cards.html"><div class="game" style="background-color: beige">Ye Olde Card Games</div></a>
+</div>
+<article>I have discovered that people enjoy card games. There is absolutely no chance I will be able to figure out how to create a card game such as Exploding Kittens or Poker or Uno within a reasonable time frame.
+Also, it has to either be a single player game or one so simplistic that even I can code an A.I for. So here's BLACKJACK for you. Now you get to experience the thrill of gambling while you sit in a dreary classroom.
+No, you may not complain about my card art. I could easily make a diamond and I already have code for a heart, but spades and clubs would be a nightmare.
+</article>
+<div class="money">CASH<br>$<span class="bank">500</span></div>
+<div class="score"></div>
+<div class="dealer"></div>
+<div class="hit" onClick="hit()">HIT</div>
+<div class="stand" onClick="stand()">STAND</div>
+<div class="reset" onClick="reset()">RESET</div>
+<div class="c ca"></div>
+<div class="c cb"></div>
+<div class="c cc"></div>
+<div class="c cd"></div>
+<div class="c ce"></div>
+<div class="d de"></div>
+<div class="d dd"></div>
+<div class="d dc"></div>
+<div class="d db"></div>
+<div class="d da"></div>
+</body>
+<script>
+you = document.querySelector('.score');
+me = document.querySelector('.dealer');
+ca = document.querySelector('.ca');
+cb = document.querySelector('.cb');
+cc = document.querySelector('.cc');
+cd = document.querySelector('.cd');
+ce = document.querySelector('.ce');
+da = document.querySelector('.da');
+db = document.querySelector('.db');
+dc = document.querySelector('.dc');
+dd = document.querySelector('.dd');
+de = document.querySelector('.de');
+menu = document.querySelector('.menu');
+bank = document.querySelector('.bank');
+h = document.querySelector('.hit');
+s = document.querySelector('.stand');
+r = document.querySelector('.reset');
+var card = 0;
+var score = 0;
+var x = 0;
+var dealer = 0;
+var cards = 0;
+var nav = 0;
+var ace = 0;
+var cash = 500;
+var bet = 0;
+function navbar(){
+	if (nav == 0){
+		menu.style.display = "block";
+		nav = 1;
+	}else {
+		menu.style.display = "none";
+		nav = 0;
+	}
+}
+
+function hit(){
+	if (card == 0){
+		betting();
+		convert();
+		ca.style.opacity = "100%";
+		ca.textContent = y;
+		score = score + x;
+		card = 1;
+	}else if (card == 1){
+		convert();
+		cb.style.opacity = "100%";
+		cb.textContent = y;
+		score = score + x;
+		card = 2;
+	}else if (card == 2){
+		convert();
+		cc.style.opacity = "100%";
+		cc.textContent = y;
+		score = score + x;
+		card = 3;
+	}else if (card == 3){
+		convert();
+		cd.style.opacity = "100%";
+		cd.textContent = y;
+		score = score + x;
+		card = 4;
+	}else if (card == 4){
+		convert();
+		ce.style.opacity = "100%";
+		ce.textContent = y;
+		score = score + x;
+		card = 5;
+		if (score <= 21){
+			alert('You have successfully drawn 5 cards without going over 21!'); 
+			r.style.display = "block";
+			score = 21;
+		}
+	}
+	if (score == 21){
+		alert('Audentes fortuna iuvat! A great fortune of $' + bet +' comprises your earnings.');
+		cash = cash - -bet;
+		bank.textContent = cash;
+		r.style.display = "block";
+		h.style.display = "none";
+		s.style.display = "none";
+	}
+	if (score > 21){
+		if (ace >= 1){
+		ace--;
+		score = score - 10;
+		}else{
+			alert('Aut Caesar aut nihil? Thou hast the latter.');
+			cash = cash - bet;
+			bank.textContent = cash;
+			r.style.display = "block";
+			h.style.display = "none";
+			s.style.display = "none";
+		}
+	}
+you.textContent = score;
+}
+
+function stand(){
+	if (card == 0){
+			alert('Thou art a fool! To stand without drawing a single card? Nonetheless, state thy wager.')
+			betting();
+			card = 1;
+	}
+	h.style.display = "none";
+	s.style.display = "none";
+	ace = 0;
+	if (cards == 0){
+		convert();
+		da.style.opacity = "100%";
+		da.textContent = y;
+		dealer = dealer + x;
+		cards = 1;
+	}else if (cards == 1){
+		convert();
+		db.style.opacity = "100%";
+		db.textContent = y;
+		dealer = dealer + x;
+		cards = 2;
+	}else if (cards == 2){
+		convert();
+		dc.style.opacity = "100%";
+		dc.textContent = y;
+		dealer = dealer + x;
+		cards = 3;
+	}else if (cards == 3){
+		convert();
+		dd.style.opacity = "100%";
+		dd.textContent = y;
+		dealer = dealer + x;
+		cards = 4;
+	}else if (cards == 4){
+		convert();
+		de.style.opacity = "100%";
+		de.textContent = y;
+		dealer = dealer + x;
+		cards = 5;
+		if (dealer <= 21){
+			alert('Five cards have I and thus art thou defeated.');
+			cash = cash - bet;
+			bank.textContent = cash;
+			r.style.display = "block";
+			dealer = 21;
+		}
+	}
+	if (dealer <= 16){
+		window.setTimeout(stand, 2000);
+	}else{
+		if (dealer > 21){
+			if (ace >= 1){
+				ace--;
+				dealer = dealer - 10;
+				stand();
+			}else{
+				alert('Mine score hast exceeded 21. Thou art successful from my misfortune alone!');
+				cash = cash - -bet;
+				bank.textContent = cash;
+				r.style.display = "block";
+				}}else if (score > dealer){
+				alert('Your score is higher than mine. Well done on earning $' + bet + ' from this game.');
+				cash = cash - -bet;
+				bank.textContent = cash;
+			}else if (dealer > score){
+				if (score == 20){
+				alert('Thy woe is also mine. Wait... Thy money is also mine. Pardon for my exultation.');
+				cash = cash - bet;
+				bank.textContent = cash;
+				r.style.display = "block";
+			}else{
+				alert('Thy meekness is thy weakness! Another card risked may have brought thee victory.');
+				cash = cash - bet;
+				bank.textContent = cash;
+				r.style.display = "block";
+			}
+		}
+	}
+	if (dealer == score && dealer > 16){
+		alert('Victory blesses neither side. Therefore, thou art defeated. All wagers are returned.');
+		r.style.display = "block";
+	}
+	me.textContent = dealer;
+}
+function convert(){
+x = Math.ceil(Math.random()*10);
+if (x == 1){
+y = "A";
+ace++;
+x = 11;
+}else{
+y = x;
+}}
+function reset(){
+ca.style.opacity = "0%";
+cb.style.opacity = "0%";
+cc.style.opacity = "0%";
+cd.style.opacity = "0%";
+ce.style.opacity = "0%";
+da.style.opacity = "0%";
+db.style.opacity = "0%";
+dc.style.opacity = "0%";
+dd.style.opacity = "0%";
+de.style.opacity = "0%";
+h.style.display = "block";
+s.style.display = "block";
+r.style.display = "none";
+you.textContent = "";
+me.textContent = "";
+card = 0;
+score = 0;
+x = 0;
+dealer = 0;
+cards = 0;
+nav = 0;
+ace = 0;
+bet = 0;
+}
+function betting(){
+bet = prompt('State thy wager. Ascertain that it is an integer.');
+check = Math.floor(bet) - Math.ceil(bet);
+if (check != 0){
+alert('Unacceptable! I demanded an integer!');
+betting();
+}else if (bet > cash){
+alert('You wish to bet $' + bet + '? It appears to me that thou hast only $' + cash + '.');
+betting();
+}else if (bet < 0){
+alert('To wager one\'s own defeat is prohibited.');
+betting();
+}else if (bet == 0){
+alert('Thou camest to the casino and wilt not bet? Unacceptable!');
+betting();
+}
+}
+</script>
+</html>
